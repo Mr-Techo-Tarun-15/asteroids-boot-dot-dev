@@ -53,7 +53,7 @@ def main():
             if player.collides_with(asteroid) == True:
                 log_event("player_hit")                
                 print("Game Over!")
-                print(f"You shot {score_counter} asteroids! Your score is {score_counter}!")
+                print(f"You shot {score_counter} {"asteroid" if score_counter == 1 else "asteroids"}! Your score is {score_counter}!")
                 sys.exit()
             for shot in shots:
                 if shot.collides_with(asteroid) == True:

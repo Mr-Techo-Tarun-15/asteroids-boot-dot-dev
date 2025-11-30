@@ -22,6 +22,8 @@ shots = pygame.sprite.Group()
 Shot.containers = (shots, updatable)
 
 def main():
+    score_counter = 0 # Beforehand 'score' variable
+    
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
@@ -51,10 +53,11 @@ def main():
             if player.collides_with(asteroid) == True:
                 log_event("player_hit")                
                 print("Game Over!")
+                print(f"You shot {score_counter} {"asteroid" if score_counter == 1 else "asteroids"}! Your score is {score_counter}!")
                 sys.exit()
             for shot in shots:
                 if shot.collides_with(asteroid) == True:
-                    score += 1
+                    score_counter += 1
                     log_event("asteroid_shot")
                     shot.kill()
                     asteroid.split()
